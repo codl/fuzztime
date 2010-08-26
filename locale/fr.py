@@ -36,7 +36,7 @@ minutes = { # % will be replaced by the current hour, ! will be replaced by the 
     10: "% dix",
     15: "% et quart",
     20: "% vingt",
-    30: "% et demie",
+    30: "% et demi",
     40: "! moins vingt",
     45: "! moins le quart",
     50: "! moins dix",
