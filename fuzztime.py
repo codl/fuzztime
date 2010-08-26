@@ -1,15 +1,17 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+"""Outputs current time as an approximation"""
 
 import sys
 import time
 
 # Locale
-sys.path=["locale"]+sys.path
+sys.path=["locale", "/home/codl/dev/fuzztime/locale"]+sys.path
 # from en import *
-from fr import *
+from en import *
 
 def fuzz(h,m):
+    """Outputs given time as an approximation"""
     diff = 60
     for i in minutes.iterkeys():
         tmpdiff=m-i
@@ -37,7 +39,7 @@ def fuzz(h,m):
 
 # SUPER SECRET EASTER EGG
 partypartyparty=True
-# I WONDER WHAT IT DOES
+# OH GOD I CAN'T WAIT TO SEE WHAT IT DOES
 
 if __name__ == "__main__":
     t=time.localtime(time.time())
