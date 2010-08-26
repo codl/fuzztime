@@ -7,32 +7,31 @@ import time
 
 # Locale
 sys.path=["locale", "/home/codl/dev/fuzztime/locale"]+sys.path
-# from en import *
-from en import *
+import en as locale
 
 def fuzz(h,m):
     """Outputs given time as an approximation"""
     diff = 60
-    for i in minutes.iterkeys():
+    for i in locale.minutes.iterkeys():
         tmpdiff=m-i
         if abs(tmpdiff) < abs(diff):
             diff=tmpdiff
-            ret=minutes[i].replace("%", hours[h]).replace("!", hours[(h+1)%24])
-    if h in hoursplural:
-        ret=ret.replace("$", plural)
+            ret=locale.minutes[i].replace("%", locale.hours[h]).replace("!", locale.hours[(h+1)%24])
+    if h in locale.hoursplural:
+        ret=ret.replace("$", locale.plural)
     else:
         ret=ret.replace("$", "")
-    if h in hoursfem:
-        ret=ret.replace("3", f)
+    if h in locale.hoursfem:
+        ret=ret.replace("3", locale.f)
     else:
-        ret=ret.replace("3", m)
+        ret=ret.replace("3", locale.m)
 
     if diff == 0:
-        ret=exactly.replace("%", ret)
+        ret=locale.exactly.replace("%", ret)
     elif diff >= -3 and diff < 0 and almost != "%":
-        ret=almost.replace("%", ret)
+        ret=locale.almost.replace("%", ret)
     elif diff < 0:
-        ret=soon.replace("%", ret)
+        ret=locale.soon.replace("%", ret)
     if partypartyparty and h == 0 and m == 0:
         ret="PARTYPARTYPARTY"
     return ret
