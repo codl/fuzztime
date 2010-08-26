@@ -17,9 +17,13 @@ def fuzz(h,m):
             diff=tmpdiff
             ret=minutes[i].replace("%", hours[h]).replace("!", hours[(h+1)%24])
     if h in hoursplural:
-        ret=ret.replace("$", "s")
+        ret=ret.replace("$", plural)
     else:
         ret=ret.replace("$", "")
+    if h in hoursfem:
+        ret=ret.replace("3", f)
+    else:
+        ret=ret.replace("3", m)
 
     if diff == 0:
         ret=exactly.replace("%", ret)
@@ -37,4 +41,4 @@ partypartyparty=True
 
 if __name__ == "__main__":
     t=time.localtime(time.time())
-    print unicode(fuzz(t[3],t[4]))
+    print(unicode(fuzz(t[3],t[4])))

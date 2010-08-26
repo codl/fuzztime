@@ -27,10 +27,17 @@ hours = (
     "eleven"
     )
 
-hoursplural = (1, 2, 3, "COMPLETELY", "USELESS", "HERE")
+# $ will be replaced by plural if h is in hoursplural
+hoursplural = ()
+plural="USELESS HERE"
 
-minutes = { # % will be replaced by the current hour, ! will be replaced by the next hour
-            # = will be "s" if hours are plural, see hoursplural variable
+# 3 will be replaced by f if h is in hoursfem or by m else
+hoursfem = ()
+m = "HERP"
+f = "DERP"
+
+# % will be replaced by the current hour, ! will be replaced by the next hour
+minutes = {
     0: "% o'clock",
     0.5: "past %",
     10: "ten past %",
