@@ -45,11 +45,11 @@ minutes = {
     15: "% et quart",
     20: "% vingt",
     30: "% et demi",
-    45: "! moins vingt-cinq",
+    35: "! moins vingt-cinq",
     40: "! moins vingt",
     45: "! moins le quart",
     50: "! moins dix",
-    50: "! moins cinq",
+    55: "! moins cinq",
     60: "!"
     }
 
