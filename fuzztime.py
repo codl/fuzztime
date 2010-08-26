@@ -28,7 +28,7 @@ def fuzz(h,m):
 
     if diff == 0:
         ret=locale.exactly.replace("%", ret)
-    elif diff >= -3 and diff < 0 and almost != "%":
+    elif diff >= -3 and diff < 0 and locale.almost != "%":
         ret=locale.almost.replace("%", ret)
     elif diff < 0:
         ret=locale.soon.replace("%", ret)
