@@ -1,58 +1,40 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
+import sys
 import time
 
-# Words
-hours = ( 
-    "twelve",
-    "one",
-    "two",
-    "three",
-    "four",
-    "five",
-    "six",
-    "seven",
-    "eight",
-    "nine",
-    "ten",
-    "eleven"
-    )
+# Locale
+sys.path=["locale"]+sys.path
+# from en import *
+from fr import *
 
-minutes = { # % will be replaced by the current hour, ! will be replaced by the next hour
-    0: "% o'clock",
-    1: "past %",
-    10: "ten past %",
-    15: "quarter past %",
-    20: "twenty past %",
-    30: "half past %",
-    40: "twenty to !",
-    45: "quarter to !",
-    50: "ten to !",
-    60: "!"
-    }
-
-almost = "almost %"
-exactly = "exactly %"
-
-
-def fuzzy(h,m):
+def fuzz(h,m):
     diff = 60
     for i in minutes.iterkeys():
         tmpdiff=m-i
         if abs(tmpdiff) < abs(diff):
             diff=tmpdiff
-            ret=minutes[i].replace("%", hours[h]).replace("!", hours[h+1])
+            ret=minutes[i].replace("%", hours[h]).replace("!", hours[(h+1)%24])
+    if h in hoursplural:
+        ret=ret.replace("$", "s")
+    else:
+        ret=ret.replace("$", "")
+
     if diff == 0:
         ret=exactly.replace("%", ret)
-    elif diff >= -2:
+    elif diff >= -3 and diff < 0 and almost != "%":
         ret=almost.replace("%", ret)
+    elif diff < 0:
+        ret=soon.replace("%", ret)
     if partypartyparty and h == 0 and m == 0:
         ret="PARTYPARTYPARTY"
     return ret
 
+# SUPER SECRET EASTER EGG
+partypartyparty=True
+# I WONDER WHAT IT DOES
+
 if __name__ == "__main__":
     t=time.localtime(time.time())
-    # SUPER SECRET EASTER EGG
-    partypartyparty=True
-    # I WONDER WHAT IT DOES
-    print fuzzy(t[3]%12,t[4])
+    print unicode(fuzz(t[3],t[4]))
