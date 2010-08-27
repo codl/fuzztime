@@ -42,4 +42,4 @@ partypartyparty=True
 
 if __name__ == "__main__":
     t=time.localtime(time.time())
-    print(unicode(fuzz(t[3],t[4])))
+    print(fuzz(t[3],t[4]).encode("utf-8"))

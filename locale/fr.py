@@ -40,7 +40,7 @@ m = ""
 minutes = { 
     0: "%",
     0.5: u"% passé3$",
-    10: "% cinq",
+    5: "% cinq",
     10: "% dix",
     15: "% et quart",
     20: "% vingt",
