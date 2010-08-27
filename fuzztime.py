@@ -28,10 +28,8 @@ def fuzz(h,m):
 
     if diff == 0:
         ret=locale.exactly.replace("%", ret)
-    elif diff >= -3 and diff < 0 and locale.almost != "%":
-        ret=locale.almost.replace("%", ret)
     elif diff < 0:
-        ret=locale.soon.replace("%", ret)
+        ret=locale.almost.replace("%", ret)
     if partypartyparty and h == 0 and m == 0:
         ret="PARTYPARTYPARTY"
     return ret

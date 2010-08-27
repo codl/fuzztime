@@ -53,6 +53,5 @@ minutes = {
     60: "!"
     }
 
-soon = u"bientôt %"
 almost = "presque %"
 exactly = "exactement %"

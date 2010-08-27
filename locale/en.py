@@ -39,7 +39,7 @@ f = "DERP"
 # % will be replaced by the current hour, ! will be replaced by the next hour
 minutes = {
     0: "% o'clock",
-    0.5: "past %",
+    0.5: "past %", # This way, 12:00 will say "twelve o'clock" and 12:01 will say "past twelve", not "exactly past twelve"
     10: "ten past %",
     15: "quarter past %",
     20: "twenty past %",
@@ -50,6 +50,5 @@ minutes = {
     60: "!"
     }
 
-soon = "%"
 almost = "almost %"
 exactly = "exactly %"
