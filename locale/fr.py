@@ -9,7 +9,7 @@ hours = (
     "cinq heures",
     "six heures",
     "sept heures",
-    "hut heures",
+    "huit heures",
     "neuf heures",
     "dix heures",
     "onze heures",
