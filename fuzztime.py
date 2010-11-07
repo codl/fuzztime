@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python2
 # -*- coding: utf-8 -*-
 """Outputs current time as an approximation"""
 
@@ -12,7 +12,7 @@ import en as locale
 def fuzz(h,m):
     """Outputs given time as an approximation"""
     diff = 60
-    for i in list(locale.minutes.keys()):
+    for i in locale.minutes.iterkeys():
         tmpdiff=m-i
         if abs(tmpdiff) < abs(diff):
             diff=tmpdiff
