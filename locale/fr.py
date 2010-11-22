@@ -39,7 +39,7 @@ m = ""
 # % will be replaced by the current hour, ! will be replaced by the next hour
 minutes = { 
     0: "%",
-    0.5: u"% passé3$",
+    0.5: "% passé3$",
     5: "% cinq",
     10: "% dix",
     15: "% et quart",
